@@ -14,3 +14,21 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: white;
+  color: black;
+}
+
+html.dark body {
+  background-color: #1a202c;
+  color: white;
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+html.dark a {
+  color: #63b3ed;
+}

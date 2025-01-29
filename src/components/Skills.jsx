@@ -1,6 +1,15 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
+  const { language } = useLanguage();
+
+  const texts = {
+    en: 'Skills',
+    ru: 'Навыки',
+    uk: 'Навички'
+  };
+
   const skills = [
     { name: "React", level: 90 },
     { name: "JavaScript", level: 85 },
@@ -11,7 +20,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">{texts[language]}</h2>
         <div className="max-w-3xl mx-auto space-y-6">
           {skills.map((skill, index) => (
             <div key={index}>
