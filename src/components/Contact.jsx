@@ -1,6 +1,15 @@
 import React from 'react';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  ContactSection,
+  Container,
+  Title,
+  FormWrapper,
+  Label,
+  Input,
+  TextArea
+} from './СontactStyles';
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -32,37 +41,28 @@ const Contact = () => {
   const { title, nameLabel, emailLabel, messageLabel, buttonText } = texts[language];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">{title}</h2>
-        <div className="max-w-xl mx-auto">
-          <form className="space-y-6">
+    <ContactSection id="contact">
+      <Container>
+        <Title>{title}</Title>
+        <FormWrapper>
+          <form>
             <div>
-              <label className="block text-gray-700 mb-2">{nameLabel}</label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <Label>{nameLabel}</Label>
+              <Input type="text" />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">{emailLabel}</label>
-              <input
-                type="email"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <Label>{emailLabel}</Label>
+              <Input type="email" />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">{messageLabel}</label>
-              <textarea
-                rows="4"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
+              <Label>{messageLabel}</Label>
+              <TextArea rows="4"></TextArea>
             </div>
-            <Button type="submit" className="w-full">{buttonText}</Button>
+            <Button type="submit">{buttonText}</Button>
           </form>
-        </div>
-      </div>
-    </section>
+        </FormWrapper>
+      </Container>
+    </ContactSection>
   );
 };
 

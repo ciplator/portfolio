@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { SkillsSection, SkillsContainer, SkillItem, SkillHeader, SkillName, SkillLevel, SkillBar, SkillProgress } from './SkillsStyles';
 
 const Skills = () => {
   const { language } = useLanguage();
@@ -18,27 +19,22 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">{texts[language]}</h2>
-        <div className="max-w-3xl mx-auto space-y-6">
-          {skills.map((skill, index) => (
-            <div key={index}>
-              <div className="flex justify-between mb-2">
-                <span className="font-medium">{skill.name}</span>
-                <span>{skill.level}%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div
-                  className="h-full bg-blue-600 rounded-full"
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <SkillsSection id="skills">
+      <SkillsContainer>
+        <h2>{texts[language]}</h2>
+        {skills.map((skill, index) => (
+          <SkillItem key={index}>
+            <SkillHeader>
+              <SkillName>{skill.name}</SkillName>
+              <SkillLevel>{skill.level}%</SkillLevel>
+            </SkillHeader>
+            <SkillBar>
+              <SkillProgress width={skill.level} />
+            </SkillBar>
+          </SkillItem>
+        ))}
+      </SkillsContainer>
+    </SkillsSection>
   );
 };
 

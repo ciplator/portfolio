@@ -1,11 +1,8 @@
 import React from 'react';
+import { StyledCard } from './CardStyles';
 
 const Card = ({ children, className = '' }) => {
-  return (
-    <div className={`bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 transition-colors ${className}`}>
-      {children}
-    </div>
-  );
+  return <StyledCard className={className}>{children}</StyledCard>;
 };
 
 export default Card;
