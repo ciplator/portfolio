@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -13,6 +13,15 @@ import {
 
 const Contact = () => {
   const { language } = useLanguage();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const texts = {
     en: {
@@ -40,25 +49,79 @@ const Contact = () => {
 
   const { title, nameLabel, emailLabel, messageLabel, buttonText } = texts[language];
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://hook.eu1.make.com/dizus0vqsl8nl449aqg5gj4hltjs9pjn', { // Убедитесь, что этот URL корректный
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Сообщение отправлено успешно!');
+        setFormData({ name: '', email: '', message: '' }); // Сбросить форму
+      } else {
+        throw new Error('Не удалось отправить сообщение');
+      }
+    } catch (error) {
+      setErrorMessage('Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте снова.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
   return (
     <ContactSection id="contact">
       <Container>
         <Title>{title}</Title>
         <FormWrapper>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <Label>{nameLabel}</Label>
-              <Input type="text" />
+              <Input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div>
               <Label>{emailLabel}</Label>
-              <Input type="email" />
+              <Input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div>
               <Label>{messageLabel}</Label>
-              <TextArea rows="4"></TextArea>
+              <TextArea
+                rows="4"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></TextArea>
             </div>
-            <Button type="submit">{buttonText}</Button>
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Отправка...' : buttonText}
+            </Button>
           </form>
         </FormWrapper>
       </Container>
