@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import {
   HeaderContainer,
@@ -10,12 +10,14 @@ import {
   DropdownButton,
   DropdownMenu,
   DropdownItem,
-  MobileMenuButton
+  MobileMenuButton,
+  MobileMenu
 } from './HeaderStyles';
 
 const Header = () => {
   const { toggleLanguage } = useLanguage();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLanguageChange = (language) => {
     setIsDropdownOpen(false);
@@ -26,16 +28,15 @@ const Header = () => {
     <HeaderContainer>
       <Nav>
         <Title>My Portfolio</Title>
-        <div className="hidden md:flex space-x-8">
+        {/* Десктопное меню */}
+        <div className="hidden md:flex items-center space-x-8">
           <NavLink href="#about">About</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#contact">Contact</NavLink>
-
-          {/* Выпадающее меню для выбора языка */}
           <DropdownContainer>
             <DropdownButton onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-              Language
+              <Globe className="h-5 w-5 text-gray-700" />
             </DropdownButton>
             {isDropdownOpen && (
               <DropdownMenu>
@@ -46,10 +47,31 @@ const Header = () => {
             )}
           </DropdownContainer>
         </div>
-        <MobileMenuButton className="md:hidden">
+        {/* Мобильное меню */}
+        <MobileMenuButton className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           <Menu className="h-6 w-6 text-gray-700" />
         </MobileMenuButton>
       </Nav>
+      {isMobileMenuOpen && (
+        <MobileMenu>
+          <NavLink href="#about">About</NavLink>
+          <NavLink href="#projects">Projects</NavLink>
+          <NavLink href="#skills">Skills</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
+          <DropdownContainer>
+            <DropdownButton onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+              <Globe className="h-5 w-5 text-gray-700" />
+            </DropdownButton>
+            {isDropdownOpen && (
+              <DropdownMenu>
+                <DropdownItem onClick={() => handleLanguageChange('en')}>English</DropdownItem>
+                <DropdownItem onClick={() => handleLanguageChange('ru')}>Русский</DropdownItem>
+                <DropdownItem onClick={() => handleLanguageChange('uk')}>Українська</DropdownItem>
+              </DropdownMenu>
+            )}
+          </DropdownContainer>
+        </MobileMenu>
+      )}
     </HeaderContainer>
   );
 };

@@ -80,3 +80,16 @@ export const MobileMenuButton = styled.button`
   border: none;
   cursor: pointer;
 `;
+
+export const MobileMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+`;
