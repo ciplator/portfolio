@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { SkillsSection, SkillsContainer, SkillItem, SkillHeader, SkillName, SkillLevel, SkillBar, SkillProgress } from './SkillsStyles';
+import { FaReact, FaJsSquare, FaHtml5, FaNodeJs } from 'react-icons/fa';
+import { SkillsSection, SkillsContainer, SkillItem, SkillHeader, SkillName, SkillIcon } from './SkillsStyles';
 
 const Skills = () => {
   const { language } = useLanguage();
@@ -12,10 +13,10 @@ const Skills = () => {
   };
 
   const skills = [
-    { name: "React", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "HTML/CSS", level: 95 },
-    { name: "Node.js", level: 75 }
+    { name: "React", icon: <FaReact size={40} color="#61DAFB" /> },
+    { name: "JavaScript", icon: <FaJsSquare size={40} color="#F7DF1E" /> },
+    { name: "HTML/CSS", icon: <FaHtml5 size={40} color="#E34F26" /> },
+    { name: "Node.js", icon: <FaNodeJs size={40} color="#83CD29" /> }
   ];
 
   return (
@@ -26,11 +27,8 @@ const Skills = () => {
           <SkillItem key={index}>
             <SkillHeader>
               <SkillName>{skill.name}</SkillName>
-              <SkillLevel>{skill.level}%</SkillLevel>
+              <SkillIcon>{skill.icon}</SkillIcon>
             </SkillHeader>
-            <SkillBar>
-              <SkillProgress width={skill.level} />
-            </SkillBar>
           </SkillItem>
         ))}
       </SkillsContainer>

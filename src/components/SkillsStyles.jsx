@@ -53,3 +53,8 @@ export const SkillProgress = styled.div`
   border-radius: 9999px;
   transition: width 0.4s ease-in-out;
 `;
+export const SkillIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
