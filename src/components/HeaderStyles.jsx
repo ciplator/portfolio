@@ -25,7 +25,10 @@ export const NavItems = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  justify-content: center; /* Центрируем элементы */
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavLink = styled.a`
@@ -33,71 +36,10 @@ export const NavLink = styled.a`
   font-size: 16px;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
+  padding: 10px 0;
 
   &:hover {
     color: #1a202c;
-  }
-`;
-
-export const DropdownContainer = styled.div`
-  position: relative;
-`;
-
-export const DropdownButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-
-  img {
-    width: 24px;
-    height: 16px;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &:focus {
-    outline: 2px solid #3182ce;
-    outline-offset: 2px;
-  }
-`;
-
-export const DropdownMenu = styled.div`
-  position: absolute;
-  right: 0;
-  margin-top: 8px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  width: 10rem;
-  overflow: hidden;
-`;
-
-export const DropdownItem = styled.button`
-  width: 100%;
-  padding: 12px 16px;
-  text-align: left;
-  background: none;
-  border: none;
-  color: #4a5568;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  img {
-    width: 24px;
-    height: 16px;
-  }
-
-  &:hover {
-    background-color: #edf2f7;
   }
 `;
 
@@ -105,24 +47,75 @@ export const MobileMenuButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  display: block;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 `;
 
-export const MobileMenu = styled.div`
+export const LanguageButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalContent = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 90%;
+`;
+
+export const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+`;
+
+export const ModalBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  padding: 16px 0;
-  gap: 16px;
-  max-width: 1120px;
-  margin: 0 auto;
+  gap: 20px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+`;
+
+export const LanguageOption = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+
+  &:hover {
+    background: #f0f0f0;
+  }
 `;
