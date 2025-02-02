@@ -3,20 +3,20 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
+  padding: 16px 0;
 `;
 
 export const Nav = styled.div`
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   color: #1a202c;
 `;
@@ -24,12 +24,13 @@ export const Title = styled.h1`
 export const NavItems = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 24px;
+  justify-content: center; /* Центрируем элементы */
 `;
 
 export const NavLink = styled.a`
   color: #4a5568;
-  font-size: 1rem;
+  font-size: 16px;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 
@@ -45,36 +46,55 @@ export const DropdownContainer = styled.div`
 export const DropdownButton = styled.button`
   background: none;
   border: none;
-  color: #4a5568;
-  font-size: 1rem;
+  font-size: 16px;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 24px;
+    height: 16px;
+  }
 
   &:hover {
-    color: #1a202c;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: 2px solid #3182ce;
+    outline-offset: 2px;
   }
 `;
 
 export const DropdownMenu = styled.div`
   position: absolute;
   right: 0;
-  margin-top: 0.5rem;
+  margin-top: 8px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.375rem;
+  border-radius: 6px;
   width: 10rem;
   overflow: hidden;
 `;
 
 export const DropdownItem = styled.button`
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 12px 16px;
   text-align: left;
   background: none;
   border: none;
   color: #4a5568;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  img {
+    width: 24px;
+    height: 16px;
+  }
 
   &:hover {
     background-color: #edf2f7;
@@ -85,6 +105,10 @@ export const MobileMenuButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const MobileMenu = styled.div`
@@ -97,5 +121,8 @@ export const MobileMenu = styled.div`
   top: 60px;
   left: 0;
   width: 100%;
-  padding: 1rem 0;
+  padding: 16px 0;
+  gap: 16px;
+  max-width: 1120px;
+  margin: 0 auto;
 `;
