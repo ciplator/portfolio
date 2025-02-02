@@ -21,6 +21,12 @@ export const Title = styled.h1`
   color: #1a202c;
 `;
 
+export const NavItems = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+`;
+
 export const NavLink = styled.a`
   color: #4a5568;
   font-size: 1rem;

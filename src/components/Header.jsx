@@ -5,6 +5,7 @@ import {
   HeaderContainer,
   Nav,
   Title,
+  NavItems,
   NavLink,
   DropdownContainer,
   DropdownButton,
@@ -28,8 +29,7 @@ const Header = () => {
     <HeaderContainer>
       <Nav>
         <Title>My Portfolio</Title>
-        {/* Десктопное меню */}
-        <div className="hidden md:flex items-center space-x-8">
+        <NavItems>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -46,8 +46,7 @@ const Header = () => {
               </DropdownMenu>
             )}
           </DropdownContainer>
-        </div>
-        {/* Мобильное меню */}
+        </NavItems>
         <MobileMenuButton className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           <Menu className="h-6 w-6 text-gray-700" />
         </MobileMenuButton>
