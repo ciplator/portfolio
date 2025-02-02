@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { FaReact, FaJsSquare, FaHtml5, FaNodeJs, FaCss3Alt } from 'react-icons/fa';
-import { SiTypescript, SiMake, SiZapier, SiWorkflow, SiOpenai, SiApi, SiWebassembly } from 'react-icons/si';
+import { SiTypescript, SiMake, SiZapier, SiOpenai} from 'react-icons/si';
 import { SkillsSection, SkillsContainer, SkillItem, SkillHeader, SkillName, SkillIcon } from './SkillsStyles';
 
 const Skills = () => {
