@@ -1,3 +1,4 @@
+// src/components/App.jsx
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import Header from './Header';
@@ -6,6 +7,7 @@ import Projects from './Projects';
 import Skills from './Skills';
 import Contact from './Contact';
 import { LanguageProvider } from '../context/LanguageContext';
+import Footer from './Footer';  // Импортируем Footer
 import { ScrollToTopButton } from './AppStyles';
 
 const App = () => {
@@ -33,9 +35,8 @@ const App = () => {
           <Skills />
           <Contact />
         </main>
-        <footer className="bg-gray-900 text-white py-8 text-center">
-          <p>© 2025 My Portfolio. All rights reserved.</p>
-        </footer>
+        {/* Используем новый компонент Footer */}
+        <Footer />
 
         {/* Кнопка вверх */}
         {showScroll && (
@@ -49,4 +50,3 @@ const App = () => {
 };
 
 export default App;
-

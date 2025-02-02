@@ -88,8 +88,6 @@ const Contact = () => {
     }
   };
 
-
-
   return (
     <ContactSection id="contact">
       <Container>
