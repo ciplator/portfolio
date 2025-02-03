@@ -24,10 +24,10 @@ export const ProjectCard = styled.div`
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 `;
 
@@ -40,9 +40,10 @@ export const ProjectImage = styled.img`
 `;
 
 export const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #1e40af;
 `;
 
 export const ProjectDescription = styled.p`
@@ -59,26 +60,65 @@ export const TechTag = styled.span`
   font-size: 0.875rem;
 `;
 
-/* Контейнер для кнопок */
 export const ButtonContainer = styled.div`
+  margin-top: 1.5rem;
   display: flex;
-  gap: 10px;
-  margin-top: 1rem;
+  gap: 1rem;
 `;
 
-/* Стили для кнопок */
 export const LinkButton = styled.a`
-  display: inline-block;
-  padding: 10px 16px;
-  font-size: 0.875rem;
-  font-weight: bold;
+  background-color: #2563eb;
   color: white;
-  background-color: ${({ secondary }) => (secondary ? "#1f2937" : "#2563eb")};
-  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease-in-out;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${({ secondary }) => (secondary ? "#111827" : "#1e40af")};
+    background-color: #1e40af;
+  }
+
+  ${({ secondary }) =>
+    secondary &&
+    `
+    background-color: #6b7280;
+    &:hover {
+      background-color: #4b5563;
+    }
+  `}
+`;
+
+export const ProjectDetails = styled.div`
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  div {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #4b5563;
+  }
+
+  strong {
+    color: #1e40af;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+
+    li {
+      font-size: 0.95rem;
+      color: #4b5563;
+      list-style-type: disc;
+      margin-bottom: 0.5rem;
+    }
   }
 `;

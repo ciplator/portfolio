@@ -1,0 +1,16 @@
+[
+  {
+    "title": "E-commerce Platform",
+    "description": "A full-featured online store built with React and Node.js",
+    "url": "https://example.com",
+    "github": "https://github.com/yourusername/ecommerce-platform",
+    "technologies": ["React", "Node.js", "MongoDB"]
+  },
+  {
+    "title": "Task Management App",
+    "description": "A productivity tool for organizing daily tasks",
+    "url": "https://taskmanager.com",
+    "github": "https://github.com/yourusername/task-manager",
+    "technologies": ["React", "Firebase", "Tailwind CSS"]
+  }
+]
