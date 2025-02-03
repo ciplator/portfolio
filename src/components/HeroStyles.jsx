@@ -31,3 +31,25 @@ export const HeroDescription = styled.p`
     font-size: 1.5rem;
   }
 `;
+
+export const HeroButton = styled.button`
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: white;
+    color: #2563eb;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+`;

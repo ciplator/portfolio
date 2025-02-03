@@ -1,8 +1,9 @@
+// src/components/ContactStyles.js
 import styled from 'styled-components';
 
 export const ContactSection = styled.section`
   padding: 80px 0;
-  background-color: #f8fafc;
+  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
 
   @media (max-width: 768px) {
     padding: 48px 0;
@@ -24,6 +25,7 @@ export const Title = styled.h2`
   font-weight: bold;
   text-align: center;
   margin-bottom: 48px;
+  color: #2d3748;
 
   @media (max-width: 768px) {
     font-size: 28px;
@@ -37,9 +39,15 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box; /* Исправляет проблему выхода инпутов за границы */
 
   @media (max-width: 768px) {
     max-width: 100%;
+    padding: 16px;
   }
 `;
 
@@ -56,15 +64,16 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   width: 100%;
+  box-sizing: border-box; /* Исправляет выход за границы */
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 16px;
   outline: none;
   transition: border 0.2s ease-in-out;
 
   &:focus {
-    border-color: #3182ce;
+    border-color: #2563eb;
   }
 
   @media (max-width: 768px) {
@@ -75,8 +84,9 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width: 100%;
+  box-sizing: border-box; /* Исправляет выход за границы */
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 16px;
   outline: none;
@@ -84,7 +94,7 @@ export const TextArea = styled.textarea`
   resize: vertical;
 
   &:focus {
-    border-color: #3182ce;
+    border-color: #2563eb;
   }
 
   @media (max-width: 768px) {
@@ -98,14 +108,14 @@ export const Button = styled.button`
   font-size: 16px;
   font-weight: 500;
   color: white;
-  background-color: #3182ce;
+  background-color: #2563eb;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: #2c5282;
+    background-color: #1e40af;
   }
 
   &:disabled {

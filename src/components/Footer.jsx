@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
-        <FooterText>© 2025 My Portfolio. All rights reserved.</FooterText>
+        <FooterText>© 2025 My Portfolio. Dmitriy Sukhorukov.</FooterText>
       </FooterContent>
     </FooterContainer>
   );

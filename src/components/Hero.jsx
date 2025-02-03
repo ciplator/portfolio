@@ -1,7 +1,6 @@
 import React from 'react';
-import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
-import { HeroSection, HeroContainer, HeroTitle, HeroDescription } from './HeroStyles';
+import { HeroSection, HeroContainer, HeroTitle, HeroDescription, HeroButton } from './HeroStyles';
 
 const Hero = () => {
   const { language } = useLanguage();
@@ -31,9 +30,7 @@ const Hero = () => {
       <HeroContainer>
         <HeroTitle>{title}</HeroTitle>
         <HeroDescription>{description}</HeroDescription>
-        <Button variant="outline" className="text-white border-white hover:bg-white hover:text-blue-800">
-          {button}
-        </Button>
+        <HeroButton>{button}</HeroButton>
       </HeroContainer>
     </HeroSection>
   );

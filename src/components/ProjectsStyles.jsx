@@ -24,6 +24,11 @@ export const ProjectCard = styled.div`
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 export const ProjectImage = styled.img`
@@ -52,4 +57,28 @@ export const TechTag = styled.span`
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.875rem;
+`;
+
+/* Контейнер для кнопок */
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+`;
+
+/* Стили для кнопок */
+export const LinkButton = styled.a`
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: white;
+  background-color: ${({ secondary }) => (secondary ? "#1f2937" : "#2563eb")};
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ secondary }) => (secondary ? "#111827" : "#1e40af")};
+  }
 `;
