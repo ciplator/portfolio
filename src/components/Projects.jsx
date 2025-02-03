@@ -48,8 +48,50 @@ const Projects = () => {
     {
       title: "Task Management App",
       description: "A productivity tool for organizing daily tasks",
-      url: "https://taskmanager.com",
-      github: "https://github.com/yourusername/task-manager",
+      url: "https://ivladyuser.github.io/cocktails-Bar/",
+      github: "https://github.com/iVladyuser/cocktails-Bar",
+      technologies: [
+        { name: "React", icon: <FaReact size={20} color="#61DBFB" /> },
+        { name: "Firebase", icon: <FaDatabase size={20} color="#FFCA28" /> },
+        { name: "Tailwind CSS", icon: <FaNodeJs size={20} color="#38B2AC" /> }
+      ],
+      details: {
+        technicalStack: "React, Firebase, Tailwind CSS",
+        backend: "Firebase Functions",
+        features: [
+          "Task management",
+          "User authentication",
+          "Real-time updates"
+        ]
+      }
+    },
+
+    {
+      title: "Task Management App",
+      description: "A productivity tool for organizing daily tasks",
+      url: "https://serg1853.github.io/project_team-6/",
+      github: "https://github.com/Serg1853/project_team-6",
+      technologies: [
+        { name: "React", icon: <FaReact size={20} color="#61DBFB" /> },
+        { name: "Firebase", icon: <FaDatabase size={20} color="#FFCA28" /> },
+        { name: "Tailwind CSS", icon: <FaNodeJs size={20} color="#38B2AC" /> }
+      ],
+      details: {
+        technicalStack: "React, Firebase, Tailwind CSS",
+        backend: "Firebase Functions",
+        features: [
+          "Task management",
+          "User authentication",
+          "Real-time updates"
+        ]
+      }
+    },
+
+       {
+      title: "Task Management App",
+      description: "A productivity tool for organizing daily tasks",
+      url: "https://ciplator.github.io/goit-markup-hw-07",
+      github: "https://github.com/ciplator/goit-markup-hw-07",
       technologies: [
         { name: "React", icon: <FaReact size={20} color="#61DBFB" /> },
         { name: "Firebase", icon: <FaDatabase size={20} color="#FFCA28" /> },
@@ -65,7 +107,9 @@ const Projects = () => {
         ]
       }
     }
+
   ];
+
 
   return (
     <ProjectsSection id="projects">
