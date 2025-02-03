@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
 import Flag from 'react-world-flags';
 import { useLanguage } from '../context/LanguageContext';
+import AboutMeModal from './AboutMeModal';
+import useBodyScrollLock from './hooks/useBodyScrollLock'; // Импортируем хук
 import {
   HeaderContainer,
   Nav,
@@ -34,6 +36,10 @@ const Header = () => {
   const { toggleLanguage, language } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAboutMeModalOpen, setIsAboutMeModalOpen] = useState(false);
+
+  // Используем хук для блокировки прокрутки
+  useBodyScrollLock(isModalOpen || isMenuOpen || isAboutMeModalOpen);
 
   const handleLanguageChange = (lang) => {
     toggleLanguage(lang);
@@ -48,7 +54,9 @@ const Header = () => {
 
           {/* Десктоп-меню */}
           <NavItems>
-            <NavLink href="#about">{translations[language].about}</NavLink>
+            <NavLink href="#about" onClick={() => setIsAboutMeModalOpen(true)}>
+              {translations[language].about}
+            </NavLink>
             <NavLink href="#projects">{translations[language].projects}</NavLink>
             <NavLink href="#skills">{translations[language].skills}</NavLink>
             <NavLink href="#contact">{translations[language].contact}</NavLink>
@@ -75,7 +83,10 @@ const Header = () => {
               <CloseButton onClick={() => setIsMenuOpen(false)}>×</CloseButton>
             </ModalHeader>
             <ModalBody>
-              <NavLink href="#about" onClick={() => setIsMenuOpen(false)}>
+              <NavLink href="#about" onClick={() => {
+                setIsMenuOpen(false);
+                setIsAboutMeModalOpen(true);
+              }}>
                 {translations[language].about}
               </NavLink>
               <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>
@@ -119,6 +130,9 @@ const Header = () => {
           </ModalContent>
         </ModalOverlay>
       )}
+
+      {/* Модальное окно "О себе" */}
+      <AboutMeModal isOpen={isAboutMeModalOpen} onClose={() => setIsAboutMeModalOpen(false)} />
     </>
   );
 };
