@@ -21,6 +21,18 @@ export const ModalContent = styled.div`
   max-width: 500px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 85%;
+    max-width: 400px;
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    max-width: 300px;
+    padding: 10px;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -37,6 +49,14 @@ export const ModalBody = styled.div`
   font-size: 16px;
   color: #333;
   line-height: 1.5;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -44,4 +64,12 @@ export const CloseButton = styled.button`
   border: none;
   font-size: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
