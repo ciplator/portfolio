@@ -50,7 +50,7 @@ const Header = () => {
     <>
       <HeaderContainer>
         <Nav>
-          <Title>My Portfolio</Title>
+          <Title>Dmitriy Sukhorukov</Title>
 
           {/* Десктоп-меню */}
           <NavItems>
